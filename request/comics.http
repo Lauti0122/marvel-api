@@ -1,0 +1,13 @@
+### Comic 1 
+POST  http://localhost:4000/comics
+Content-Type: application/json
+
+{
+    "title": "AVENGERS 06 LA LLEGADA DEL FENIX",
+    "description": "Who will be the new Phoenix?! The planet-spraying cosmic bird known as the Phoenix Force has returned, and the Avengers are summoned for a global battle for ultimate power! In the distant past of the year one million B.C., the only crime of a young woman was to be born with red hair, and her fate will change the history of mankind forever!",
+    "price": 8,
+    "image":"https://tap-multimedia-1172.nyc3.digitaloceanspaces.com/productimage/44241/9786076360910.jpg",
+    "rating": 5,
+    "pageCount": 160,
+    "language":"en-es"
+}
