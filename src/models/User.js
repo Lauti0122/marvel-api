@@ -20,8 +20,13 @@ const userSchema = new mongoose.Schema({
         {
         type: mongoose.Schema.Types.ObjectId,
         ref:"Role",
+        }],
+    reviews:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"Review",
         }
-]
+    ]
 },{
     timestamps:false,
     versionKey:false

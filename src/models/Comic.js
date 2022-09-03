@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
+import mongoose from 'mongoose';
 
-const productSchema = new Schema({
+const comicSchema = new  mongoose.Schema({
     title:{
         type: String,
         require:true
@@ -12,23 +13,28 @@ const productSchema = new Schema({
     price:{
         type: Number,
         require:true
+    },  
+    pageCount:{
+        type: Number
     },
     rating:{
         type: Number,
         default: 3
-    },
-    pageCount:{
-        type: Number
     },
     image:{
         type:String
     },
     language:{
         type: String
-    }
+    },
+    reviews:[
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Review",
+        }]
 },{
     timestamps: false,
     versionKey:false
 })
 
-export default model('Comic', productSchema);
+export default model('Comic', comicSchema);

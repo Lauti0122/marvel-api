@@ -1,31 +1,9 @@
-import Comic from "../models/Comic"
-/* import axios from "axios"
-export const getComics = async (req,res)=>{
-    try{
-        let comics = await axios(`https://gateway.marvel.com:443/v1/public/comics?apikey=fa58443dde58a551de237d444dac9282&ts=01/09/2022&hash=b73105c03bc82769bdc1d08af2d2a45b`)
-        .then(res => res.data)
-        res.json(comics.data.results.map(elem=> {
-            return {
-                id: elem.id,
-                title: elem.title,
-                description: elem.description,
-                prices: elem.prices,
-                pageCount: elem.pageCount,
-                format: elem.format,
-                textObjects: elem.textObjects,
-                urls: elem.urls,
-                thumbnail: elem.thumbnail
-            }
-        }))
-    }catch(err){
-        console.log(`error ${err}`)
-    }
-}
- */
+import Comic from "../models/Comic";
+import Review from "../models/Review";
 
 export const postComics = async(req,res)=>{
     try{
-        const {title, price, description} = req.body
+        const {title, price, description, reviews} = req.body
         if(!title || !price || !description){
             return res.status(400).json({ message: "Missing data" });
         }
@@ -42,7 +20,7 @@ export const postComics = async(req,res)=>{
 
 export const getComics = async(req,res)=>{
     try{
-            const comics = await Comic.find();
+            const comics = await Comic.find().populate("reviews")
 
         res.status(201).json(comics)
     }catch(error){

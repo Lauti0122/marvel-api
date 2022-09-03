@@ -5,6 +5,7 @@ import products from './routes/products'
 import auth from './routes/auth'
 import user from './routes/user'
 import comics from './routes/comics'
+import reviews from './routes/reviews'
 import { createRole } from "./libs/initialSetup";
 
 const app = express()
@@ -21,4 +22,5 @@ app.use('/products', products)
 app.use('/auth', auth)
 app.use('/users', user)
 app.use('/comics', comics)
+app.use('/reviews', reviews)
  export default app;
